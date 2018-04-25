@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "197700324210",
+    "firebase_url": "https://proyecto-sise-5940a.firebaseio.com",
+    "project_id": "proyecto-sise-5940a",
+    "storage_bucket": "proyecto-sise-5940a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197700324210:android:24b6c132d7c5bbd6",
+        "android_client_info": {
+          "package_name": "com.example.jonathan.app_proyecto_conversorunidad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197700324210-iqs64arj2aeee7cb3opiijacgdpispr4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjsvw5UarzfBLj9R6coVB7E4DB4vm6Y9M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
