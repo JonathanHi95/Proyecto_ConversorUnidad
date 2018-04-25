@@ -68,14 +68,16 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if (email.isEmpty() || password.isEmpty()) {
-
+                    barraprogreso.setVisibility(View.INVISIBLE);
+                    btningresar.setVisibility(View.VISIBLE);
                     Toast.makeText(MainActivity.this, "Completar campos", Toast.LENGTH_SHORT).show();
                 } else {
 
                   mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(MainActivity.this,new  OnCompleteListener<AuthResult>() {
                       @Override
                       public void onComplete(@NonNull Task<AuthResult> task) {
-
+                          barraprogreso.setVisibility(View.VISIBLE);
+                          btningresar.setVisibility(View.INVISIBLE);
                           try {
                               throw task.getException();
                           } catch (FirebaseAuthInvalidUserException e) {
@@ -86,14 +88,15 @@ public class MainActivity extends AppCompatActivity {
                           } catch (FirebaseNetworkException e) {
                               Toast.makeText(MainActivity.this, "Error de red", Toast.LENGTH_SHORT).show();
                           } catch (Exception e) {
-                              Log.i("error e", e.getMessage());
+                              Log.i("Error,reiniciar", e.getMessage());
                           }
 
-
                       }
+
                   });
 
-
+                    barraprogreso.setVisibility(View.INVISIBLE);
+                    btningresar.setVisibility(View.VISIBLE);
                 }
 
             }
