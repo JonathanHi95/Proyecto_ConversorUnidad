@@ -10,6 +10,38 @@
     tools:showIn="@layout/app_bar_principal">
 
     <LinearLayout
+        android:layout_width="134dp"
+        android:layout_height="147dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/layout_1"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/border"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/ic_nombre"
+            app:backgroundTint="#fff"
+            android:id="@+id/btn_1"
+            app:useCompatPadding="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Temperatura"
+
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/layout_2"
         android:layout_width="134dp"
         android:layout_height="147dp"
@@ -26,6 +58,7 @@
             android:layout_marginLeft="18dp"
             android:src="@drawable/ic_nombre"
             app:backgroundTint="#fff"
+            android:id="@+id/btn_2"
             app:useCompatPadding="false" />
 
         <TextView
@@ -54,6 +87,7 @@
             android:layout_height="100dp"
             android:layout_marginLeft="18dp"
             android:src="@drawable/ic_nombre"
+            android:id="@+id/btn_3"
             app:backgroundTint="#fff"
             app:useCompatPadding="false" />
 
@@ -61,37 +95,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Peso"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="134dp"
-        android:layout_height="147dp"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:id="@+id/layout_1"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/border"
-        android:gravity="top"
-        android:orientation="vertical">
-
-        <android.support.design.widget.FloatingActionButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="18dp"
-            android:src="@drawable/ic_nombre"
-            app:backgroundTint="#fff"
-            app:useCompatPadding="false" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Temperatura"
-
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20dp" />
