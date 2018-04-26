@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
         final DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-
+        barraprogreso.setVisibility(View.INVISIBLE);
+        btningresar.setVisibility(View.VISIBLE);
         et1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
                   mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(MainActivity.this,new  OnCompleteListener<AuthResult>() {
                       @Override
                       public void onComplete(@NonNull Task<AuthResult> task) {
-                          barraprogreso.setVisibility(View.VISIBLE);
-                          btningresar.setVisibility(View.INVISIBLE);
+
                           try {
                               throw task.getException();
                           } catch (FirebaseAuthInvalidUserException e) {
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 if (user != null) {
 
                     Toast.makeText(MainActivity.this, "Bienvenido!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, principalActivity.class);
+                    Intent intent = new Intent(MainActivity.this, principal.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);

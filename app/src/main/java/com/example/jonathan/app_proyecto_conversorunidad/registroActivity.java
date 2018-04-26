@@ -26,7 +26,7 @@ public class registroActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    AutoCompleteTextView txnombre_r,txcorreo_r,txclave_r,txconfclave_r;
+    AutoCompleteTextView txnombre_r, txcorreo_r, txclave_r, txconfclave_r;
     Button btnregistrar;
     TextView tx_login;
     ProgressBar barra_carganuevo;
@@ -45,6 +45,14 @@ public class registroActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        tx_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(registroActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +64,7 @@ public class registroActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = mAuth.getCurrentUser();
-                if(user!=null){
+                if (user != null) {
                     Abrircuenta();
                 }
 
@@ -66,43 +74,60 @@ public class registroActivity extends AppCompatActivity {
 
     }
 
-    private void Abrircuenta(){
-        Intent i = new Intent(registroActivity.this,principalActivity.class);
+    private void Abrircuenta() {
+        Intent i = new Intent(registroActivity.this, principalActivity.class);
         startActivity(i);
         finish();
     }
 
-    private void registrarusuario(){
+    private void registrarusuario() {
         final String usuario = txcorreo_r.getText().toString();
         final String clave = txclave_r.getText().toString();
         final String confclave = txconfclave_r.getText().toString();
 
-        if(!usuario.isEmpty() || !clave.isEmpty() || !confclave.isEmpty()){
+        if (!usuario.isEmpty() || !clave.isEmpty() || !confclave.isEmpty()) {
             barra_carganuevo.setVisibility(View.VISIBLE);
-            Toast.makeText(registroActivity.this,"Registrando...",Toast.LENGTH_SHORT).show();
-            mAuth.createUserWithEmailAndPassword(usuario,clave).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        Intent i = new Intent(registroActivity.this,MainActivity.class);
-                        startActivity(i);
 
-                    }else{
-                        try {
-                            throw task.getException();
-                        } catch (FirebaseAuthUserCollisionException e) {
-                            Toast.makeText(registroActivity.this, "El correo ya se encuentra registrado", Toast.LENGTH_SHORT).show();
-                        } catch (FirebaseNetworkException e) {
-                            Toast.makeText(registroActivity.this, "Error de red", Toast.LENGTH_SHORT).show();
-                        } catch (Exception e) {
-                            Log.i("Error,reiniciar", e.getMessage());
+            if (clave.length() <= 5 || confclave.length() <= 5) {
+
+                Toast.makeText(registroActivity.this, "La clave debe contener al menos 6 dígitos", Toast.LENGTH_LONG).show();
+
+            } else {
+                if (clave.equals(confclave) || confclave.equals(clave)) {
+
+                    Toast.makeText(registroActivity.this, "Registrando...", Toast.LENGTH_SHORT).show();
+
+                    mAuth.createUserWithEmailAndPassword(usuario, clave).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Intent i = new Intent(registroActivity.this, MainActivity.class);
+                                startActivity(i);
+
+                            } else {
+                                try {
+                                    throw task.getException();
+                                } catch (FirebaseAuthUserCollisionException e) {
+                                    Toast.makeText(registroActivity.this, "El correo ya se encuentra registrado", Toast.LENGTH_SHORT).show();
+                                } catch (FirebaseNetworkException e) {
+                                    Toast.makeText(registroActivity.this, "Error de red", Toast.LENGTH_SHORT).show();
+                                } catch (Exception e) {
+                                    Log.i("Error,reiniciar", e.getMessage());
+                                }
+
+                            }
                         }
+                    });
 
-                    }
+                } else {
+                    Toast.makeText(registroActivity.this, "Las claves no coinciden", Toast.LENGTH_SHORT).show();
+
                 }
-            });
-        }else{
-            Toast.makeText(registroActivity.this,"Completar campos",Toast.LENGTH_SHORT).show();
+
+            }
+
+        } else {
+            Toast.makeText(registroActivity.this, "Completar campos", Toast.LENGTH_SHORT).show();
 
         }
 
