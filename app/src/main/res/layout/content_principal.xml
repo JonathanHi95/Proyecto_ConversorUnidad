@@ -1,11 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F57C00"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".principal"
     tools:showIn="@layout/app_bar_principal">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/layout_2"
+        android:layout_width="134dp"
+        android:layout_height="147dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/layout_1"
+        android:layout_marginEnd="31dp"
+
+        android:background="@drawable/border"
+        android:orientation="vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/ic_nombre"
+            app:backgroundTint="#fff"
+            app:useCompatPadding="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Densidad"
+
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_3"
+        android:layout_width="134dp"
+        android:layout_height="147dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/layout_1"
+        android:layout_marginBottom="167dp"
+        android:background="@drawable/border"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/ic_nombre"
+            app:backgroundTint="#fff"
+            app:useCompatPadding="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Peso"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="134dp"
+        android:layout_height="147dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/layout_1"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/border"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/ic_nombre"
+            app:backgroundTint="#fff"
+            app:useCompatPadding="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Temperatura"
+
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
