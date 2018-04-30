@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment_1">
+    tools:context=".Conversor_1">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
-
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -27,20 +27,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginRight="20dp"
+                    android:id="@+id/btn_atras1"
                     android:src="@drawable/ic_atras" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Convertidor"
+                    android:text="Temperatura"
                     android:textColor="#000"
                     android:textSize="30dp" />
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/txtSolution"
+            <Spinner
+                android:id="@+id/lista1"
+                android:layout_width="match_parent"
+                style="@style/android:Widget.DropDownItem.Spinner"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"/>
+
+            <TextView
+                android:id="@+id/txtentrada"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.50"
@@ -50,9 +59,16 @@
                 android:textSize="15pt"
                 android:textStyle="bold" />
 
+            <Spinner
+                android:id="@+id/lista11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/android:Widget.DropDownItem.Spinner"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"/>
 
             <TextView
-                android:id="@+id/txtInput"
+                android:id="@+id/txtsalida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.50"
@@ -72,7 +88,7 @@
 
 
             <Button
-                android:id="@+id/btnSeven"
+                android:id="@+id/btnsiete"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -83,7 +99,7 @@
 
 
             <Button
-                android:id="@+id/btnEight"
+                android:id="@+id/btnocho"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -94,7 +110,7 @@
 
 
             <Button
-                android:id="@+id/btnNine"
+                android:id="@+id/btnnueve"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -105,12 +121,12 @@
 
 
             <Button
-                android:id="@+id/btnDivide"
+                android:id="@+id/btnresultado"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1.15"
                 android:background="#c6c2c2"
-                android:text="/"
+                android:text="="
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -124,7 +140,7 @@
 
 
             <Button
-                android:id="@+id/btnFour"
+                android:id="@+id/btncuatro"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -135,7 +151,7 @@
 
 
             <Button
-                android:id="@+id/btnFive"
+                android:id="@+id/btncinco"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -146,7 +162,7 @@
 
 
             <Button
-                android:id="@+id/btnSix"
+                android:id="@+id/btnseis"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -157,7 +173,7 @@
 
 
             <Button
-                android:id="@+id/btnMultiply"
+                android:id="@+id/btnlimpiar"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight=".98"
@@ -176,7 +192,7 @@
 
 
             <Button
-                android:id="@+id/btnOne"
+                android:id="@+id/btnuno"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -187,7 +203,7 @@
 
 
             <Button
-                android:id="@+id/btnTwo"
+                android:id="@+id/btndos"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -198,7 +214,7 @@
 
 
             <Button
-                android:id="@+id/btnThree"
+                android:id="@+id/btntres"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
@@ -214,7 +230,7 @@
                 android:layout_height="75dp"
                 android:layout_weight="1.27"
                 android:background="#c6c2c2"
-                android:text="-"
+                android:text=""
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -228,7 +244,7 @@
 
 
             <Button
-                android:id="@+id/btnDecimal"
+                android:id="@+id/btnpunto"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1.22"
@@ -239,7 +255,7 @@
 
 
             <Button
-                android:id="@+id/btnZero"
+                android:id="@+id/btncero"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight=".98"
@@ -255,7 +271,7 @@
                 android:layout_height="75dp"
                 android:layout_weight=".95"
                 android:background="#c6c2c2"
-                android:text="="
+                android:text=""
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -266,7 +282,7 @@
                 android:layout_height="75dp"
                 android:layout_weight=".93"
                 android:background="#c6c2c2"
-                android:text="+"
+                android:text=""
                 android:textSize="40sp"
                 android:textStyle="bold" />
 

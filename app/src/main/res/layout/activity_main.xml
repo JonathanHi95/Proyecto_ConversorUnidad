@@ -134,7 +134,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="© 2018 Todos los derechos reservados para la app Convert Unit"
+        android:text="© 2018 aplicación convertidor de unidades"
         android:textColor="@color/white"
         android:layout_below="@+id/scrollView"
         android:layout_marginTop="16dp"

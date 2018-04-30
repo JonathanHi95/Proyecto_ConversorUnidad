@@ -5,33 +5,30 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Importar" />
+            android:id="@+id/ic1"
+            android:icon="@drawable/ic_temperatura"
+            android:title="Temperatura" />
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Galería" />
+            android:id="@+id/ic2"
+            android:icon="@drawable/ic_balanza"
+            android:title="Masa" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Mostrar" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Herramientas" />
+            android:id="@+id/ic3"
+            android:icon="@drawable/ic_regla"
+            android:title="Longitud" />
+
     </group>
 
     <item android:title="Configuración">
         <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Compartir" />
+
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Cerrar sesión" />
+            
         </menu>
     </item>
 

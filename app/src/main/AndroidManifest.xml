@@ -3,7 +3,6 @@
     package="com.example.jonathan.app_proyecto_conversorunidad">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
 
     <application
         android:allowBackup="true"
@@ -27,7 +26,10 @@
         <activity
             android:name=".principal"
             android:label="@string/title_activity_principal"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Conversor_1" />
+        <activity android:name=".Conversor_2" />
+        <activity android:name=".Conversor_3"></activity>
     </application>
 
 </manifest>

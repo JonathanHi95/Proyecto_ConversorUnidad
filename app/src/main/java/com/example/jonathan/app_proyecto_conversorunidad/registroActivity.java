@@ -64,18 +64,18 @@ public class registroActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = mAuth.getCurrentUser();
-                if (user != null) {
-                    Abrircuenta();
-                }
 
+                if (user != null) {
+                    Abrircuenta(user.getEmail());
+                }
             }
         };
 
-
     }
 
-    private void Abrircuenta() {
+    private void Abrircuenta(String email) {
         Intent i = new Intent(registroActivity.this, principalActivity.class);
+        i.putExtra("correo",email);
         startActivity(i);
         finish();
     }

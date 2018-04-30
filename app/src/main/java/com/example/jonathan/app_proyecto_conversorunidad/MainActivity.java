@@ -1,6 +1,7 @@
 package com.example.jonathan.app_proyecto_conversorunidad;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -110,9 +111,12 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
 
-                    Toast.makeText(MainActivity.this, "Bienvenido!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Conectado", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, principal.class);
+                    intent.putExtra("correo",user.getEmail());
+
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {

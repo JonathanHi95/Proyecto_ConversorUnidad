@@ -1,5 +1,6 @@
 package com.example.jonathan.app_proyecto_conversorunidad;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,16 +14,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private FrameLayout frm1;
+    LinearLayout l1, l2, l3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +38,34 @@ public class principal extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        l1 = (LinearLayout) findViewById(R.id.layout_1);
+        l2 = (LinearLayout) findViewById(R.id.layout_2);
+        l3 = (LinearLayout) findViewById(R.id.layout_3);
+
+        l1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Test", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent i = new Intent(principal.this, Conversor_1.class);
+                startActivity(i);
             }
         });
+
+        l2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(principal.this, Conversor_2.class);
+                startActivity(i);
+            }
+        });
+
+        l3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(principal.this, Conversor_3.class);
+                startActivity(i);
+            }
+        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -49,6 +76,7 @@ public class principal extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -64,6 +92,17 @@ public class principal extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.principal, menu);
+
+        String extras;
+        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String email = currentFirebaseUser.getEmail().toString();
+        if (email == null) {
+
+        } else {
+            TextView txcorreo = (TextView) findViewById(R.id.txtcorreo);
+            txcorreo.setText(email);
+        }
+
         return true;
     }
 
@@ -86,25 +125,25 @@ public class principal extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
+        if (id == R.id.ic1) {
+            Intent i = new Intent(principal.this, Conversor_1.class);
+            startActivity(i);
+        } else if (id == R.id.ic2) {
+            Intent i = new Intent(principal.this, Conversor_2.class);
+            startActivity(i);
+        } else if (id == R.id.ic3) {
+            Intent i = new Intent(principal.this, Conversor_3.class);
+            startActivity(i);
         } else if (id == R.id.nav_send) {
 
             mAuth = FirebaseAuth.getInstance();
 
             FirebaseAuth.getInstance().signOut();
             Intent i = new Intent(principal.this, MainActivity.class);
-            Toast.makeText(principal.this, "Saliendo...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(principal.this, "Cerrando sesión...", Toast.LENGTH_SHORT).show();
             startActivity(i);
         }
 
