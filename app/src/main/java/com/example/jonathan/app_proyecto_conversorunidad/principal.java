@@ -30,6 +30,7 @@ public class principal extends AppCompatActivity
     private FrameLayout frm1;
     LinearLayout l1, l2, l3;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
