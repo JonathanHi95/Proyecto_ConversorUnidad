@@ -3,6 +3,7 @@
     package="com.example.jonathan.app_proyecto_conversorunidad">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    
 
     <application
         android:allowBackup="true"
